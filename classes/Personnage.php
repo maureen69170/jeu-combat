@@ -39,15 +39,24 @@ class Personnage
 
     public function recevoirDegats()
     {
-        $this->degats += 5;
+        /*$this->degats += 5;*/
 
         // Si on a 100 de dégâts ou plus, on dit que le personnage a été tué.
-        if ($this->degats >= 100) {
+       /* if ($this->degats >= 100) {
             return self::PERSONNAGE_TUE;
-        }
+        }*/
 
         // Sinon, on se contente de dire que le personnage a bien été frappé.
-        return self::PERSONNAGE_FRAPPE;
+        /*return self::PERSONNAGE_FRAPPE;*/
+        if ($this->degats() >20){
+            $degats = $this->degats();
+            $degats += -20;
+            $this->setDegats($degats);
+            return self::PERSONNAGE_FRAPPE;
+        }else{
+            $this->setDegats(0);
+            return self::PERSONNAGE_TUE;
+        }
     }
 
 
